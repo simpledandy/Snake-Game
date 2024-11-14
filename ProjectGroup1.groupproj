@@ -1,0 +1,36 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{FA389625-6A04-4920-9714-8E355F615E4C}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="Snake.cbproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="Snake">
+        <MSBuild Projects="Snake.cbproj"/>
+    </Target>
+    <Target Name="Snake:Clean">
+        <MSBuild Projects="Snake.cbproj" Targets="Clean"/>
+    </Target>
+    <Target Name="Snake:Make">
+        <MSBuild Projects="Snake.cbproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="Snake"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="Snake:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="Snake:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>
