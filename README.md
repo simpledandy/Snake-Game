@@ -1,2 +1,2 @@
-# MyFirstRep
-My first repository on github
+# Snake Game
+A Game with C++ Builder
